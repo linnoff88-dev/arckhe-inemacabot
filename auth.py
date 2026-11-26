@@ -1,4 +1,4 @@
-"""Regras pequenas de autorização, separadas para facilitar os testes."""
+"""Regras pequenas de autorizaçêo, separadas para facilitar os testes."""
 
 
 def is_authorized(user_id: int | None, allowed_user_id: int) -> bool:

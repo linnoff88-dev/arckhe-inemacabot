@@ -1,37 +1,37 @@
-﻿# InemacaBot
+ï»¿# InemacaBot
 
 Assistente pessoal para Telegram feito em Python. O bot:
 
-- aceita somente um usuÃ¡rio autorizado;
-- responde mensagens de texto usando o Codex CLI autenticado na mÃ¡quina;
-- transcreve mensagens de voz e arquivos de Ã¡udio com o Groq;
-- mantÃ©m um histÃ³rico curto em memÃ³ria;
+- aceita somente um usuêÂ¡rio autorizado;
+- responde mensagens de texto usando o Codex CLI autenticado na mêÂ¡quina;
+- transcreve mensagens de voz e arquivos de êÂ¡udio com o Groq;
+- mantêÂ©m um histêÂ³rico curto em memêÂ³ria;
 - divide respostas maiores que o limite do Telegram;
 - oferece apenas os comandos `/start`, `/limpar` e `/ajuda`.
 
 ## Como funciona
 
 ```text
-Texto no Telegram â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                                  â”œâ”€â†’ Codex CLI â”€â†’ resposta no Telegram
-Voz/Ã¡udio â”€â†’ Groq â”€â†’ transcriÃ§Ã£o â”˜
+Texto no Telegram ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢ââ¬ê¢âÂ
+                                  ê¢âÅê¢ââ¬ê¢â â Codex CLI ê¢ââ¬ê¢â â resposta no Telegram
+Voz/êÂ¡udio ê¢ââ¬ê¢â â Groq ê¢ââ¬ê¢â â transcriêÂ§êÂ£o ê¢âË
 ```
 
-O bot nÃ£o usa uma chave da API OpenAI. Ele executa `codex exec` com a
-autenticaÃ§Ã£o da assinatura do Codex/ChatGPT jÃ¡ ativa no usuÃ¡rio do sistema. Cada
-consulta Ã© efÃªmera, usa um diretÃ³rio temporÃ¡rio vazio e deixa as ferramentas do
+O bot nêÂ£o usa uma chave da API OpenAI. Ele executa `codex exec` com a
+autenticaêÂ§êÂ£o da assinatura do Codex/ChatGPT jêÂ¡ ativa no usuêÂ¡rio do sistema. Cada
+consulta êÂ© efêÂªmera, usa um diretêÂ³rio temporêÂ¡rio vazio e deixa as ferramentas do
 modelo em sandbox somente leitura.
 
-O Codex continua sujeito aos limites de uso da assinatura. A chave do Groq Ã©
-necessÃ¡ria somente para mensagens de voz ou Ã¡udio.
+O Codex continua sujeito aos limites de uso da assinatura. A chave do Groq êÂ©
+necessêÂ¡ria somente para mensagens de voz ou êÂ¡udio.
 
-## PrÃ©-requisitos
+## PrêÂ©-requisitos
 
 - Python 3.11 ou superior;
 - Codex CLI instalado;
 - uma assinatura com acesso ao Codex;
 - um bot criado no Telegram;
-- uma chave do Groq, se a transcriÃ§Ã£o de Ã¡udio for utilizada.
+- uma chave do Groq, se a transcriêÂ§êÂ£o de êÂ¡udio for utilizada.
 
 Confira os comandos:
 
@@ -41,7 +41,7 @@ codex --version
 codex login status
 ```
 
-Se o Codex ainda nÃ£o estiver autenticado, execute:
+Se o Codex ainda nêÂ£o estiver autenticado, execute:
 
 ```bash
 codex login
@@ -53,16 +53,16 @@ Conclua o acesso usando a mesma conta que possui a assinatura do Codex.
 
 1. Abra o Telegram e inicie uma conversa com `@BotFather`.
 2. Envie `/newbot`.
-3. Escolha o nome visÃ­vel do bot.
+3. Escolha o nome visêÂ­vel do bot.
 4. Escolha um username terminado em `bot`.
 5. Guarde o token entregue pelo BotFather.
 
-NÃ£o publique esse token e nÃ£o o coloque diretamente no cÃ³digo.
+NêÂ£o publique esse token e nêÂ£o o coloque diretamente no cêÂ³digo.
 
 ## 2. Descobrir seu ID do Telegram
 
-Envie qualquer mensagem ao bot recÃ©m-criado. Em seguida, substitua
-`SEU_TOKEN` apenas no terminal e consulte as atualizaÃ§Ãµes:
+Envie qualquer mensagem ao bot recêÂ©m-criado. Em seguida, substitua
+`SEU_TOKEN` apenas no terminal e consulte as atualizaêÂ§êÂµes:
 
 ```bash
 curl "https://api.telegram.org/botSEU_TOKEN/getUpdates"
@@ -74,9 +74,9 @@ No resultado, procure por:
 {"from":{"id":123456789}}
 ```
 
-O nÃºmero de `from.id` Ã© o valor de `TELEGRAM_ALLOWED_USER_ID`. Evite salvar o
-comando contendo o token no histÃ³rico do terminal; outra opÃ§Ã£o Ã© usar
-temporariamente uma variÃ¡vel local:
+O nêÂºmero de `from.id` êÂ© o valor de `TELEGRAM_ALLOWED_USER_ID`. Evite salvar o
+comando contendo o token no histêÂ³rico do terminal; outra opêÂ§êÂ£o êÂ© usar
+temporariamente uma variêÂ¡vel local:
 
 ```bash
 read -rsp "Token do Telegram: " TELEGRAM_SETUP_TOKEN
@@ -111,29 +111,29 @@ TELEGRAM_BOT_TOKEN=token_entregue_pelo_botfather
 TELEGRAM_ALLOWED_USER_ID=123456789
 ```
 
-Para aceitar voz e Ã¡udio, preencha depois:
+Para aceitar voz e êÂ¡udio, preencha depois:
 
 ```env
 GROQ_API_KEY=sua_chave_do_groq
 ```
 
-ConfiguraÃ§Ãµes disponÃ­veis:
+ConfiguraêÂ§êÂµes disponêÂ­veis:
 
-| VariÃ¡vel | ObrigatÃ³ria | Finalidade |
+| VariêÂ¡vel | ObrigatêÂ³ria | Finalidade |
 |---|---:|---|
 | `TELEGRAM_BOT_TOKEN` | sim | Token entregue pelo BotFather |
-| `TELEGRAM_ALLOWED_USER_ID` | sim | Ãšnico usuÃ¡rio autorizado |
-| `CODEX_BINARY` | nÃ£o | ExecutÃ¡vel do Codex; padrÃ£o `codex` |
-| `CODEX_MODEL` | nÃ£o | Modelo solicitado ao Codex; vazio usa o padrÃ£o |
-| `CODEX_TIMEOUT_SECONDS` | nÃ£o | Tempo mÃ¡ximo de uma resposta |
-| `HISTORY_MAX_EXCHANGES` | nÃ£o | Quantidade de pares mantidos em memÃ³ria |
-| `AI_SYSTEM_PROMPT` | nÃ£o | Comportamento principal do assistente |
-| `GROQ_API_KEY` | para Ã¡udio | Chave usada somente na transcriÃ§Ã£o |
-| `GROQ_TRANSCRIPTION_MODEL` | nÃ£o | PadrÃ£o `whisper-large-v3-turbo` |
-| `GROQ_TRANSCRIPTION_LANGUAGE` | nÃ£o | Idioma ISO-639-1; padrÃ£o `pt` |
-| `MAX_AUDIO_MB` | nÃ£o | Limite local antes do envio ao Groq |
+| `TELEGRAM_ALLOWED_USER_ID` | sim | êÅ¡nico usuêÂ¡rio autorizado |
+| `CODEX_BINARY` | nêÂ£o | ExecutêÂ¡vel do Codex; padrêÂ£o `codex` |
+| `CODEX_MODEL` | nêÂ£o | Modelo solicitado ao Codex; vazio usa o padrêÂ£o |
+| `CODEX_TIMEOUT_SECONDS` | nêÂ£o | Tempo mêÂ¡ximo de uma resposta |
+| `HISTORY_MAX_EXCHANGES` | nêÂ£o | Quantidade de pares mantidos em memêÂ³ria |
+| `AI_SYSTEM_PROMPT` | nêÂ£o | Comportamento principal do assistente |
+| `GROQ_API_KEY` | para êÂ¡udio | Chave usada somente na transcriêÂ§êÂ£o |
+| `GROQ_TRANSCRIPTION_MODEL` | nêÂ£o | PadrêÂ£o `whisper-large-v3-turbo` |
+| `GROQ_TRANSCRIPTION_LANGUAGE` | nêÂ£o | Idioma ISO-639-1; padrêÂ£o `pt` |
+| `MAX_AUDIO_MB` | nêÂ£o | Limite local antes do envio ao Groq |
 
-O arquivo `.env` Ã© ignorado pelo Git.
+O arquivo `.env` êÂ© ignorado pelo Git.
 
 ## 5. Iniciar o bot
 
@@ -143,10 +143,10 @@ Com o ambiente virtual ativado:
 python bot.py
 ```
 
-O processo continuarÃ¡ ativo por long polling. Para encerrar, pressione
+O processo continuarêÂ¡ ativo por long polling. Para encerrar, pressione
 `Ctrl+C`.
 
-## 6. Testar a integraÃ§Ã£o
+## 6. Testar a integraêÂ§êÂ£o
 
 Execute primeiro os testes locais:
 
@@ -158,12 +158,12 @@ Depois, no Telegram:
 
 1. envie `/start`;
 2. envie uma pergunta curta;
-3. faÃ§a uma pergunta relacionada para confirmar o histÃ³rico;
+3. faêÂ§a uma pergunta relacionada para confirmar o histêÂ³rico;
 4. envie `/limpar` e confirme que o contexto foi apagado;
-5. envie uma mensagem por outra conta e confirme que nÃ£o hÃ¡ resposta;
+5. envie uma mensagem por outra conta e confirme que nêÂ£o hêÂ¡ resposta;
 6. depois de configurar o Groq, envie uma mensagem de voz.
 
-Os erros bÃ¡sicos aparecem no terminal, sem registrar os tokens.
+Os erros bêÂ¡sicos aparecem no terminal, sem registrar os tokens.
 
 ## 7. Manter o bot ativo em uma VPS
 
@@ -175,7 +175,7 @@ command -v codex
 ```
 
 Coloque o caminho retornado por `command -v codex` em `CODEX_BINARY` no `.env`.
-O serviÃ§o precisa executar com o mesmo usuÃ¡rio Linux que realizou `codex login`.
+O serviêÂ§o precisa executar com o mesmo usuêÂ¡rio Linux que realizou `codex login`.
 
 Crie `/etc/systemd/system/inemacabot.service`:
 
@@ -200,7 +200,7 @@ NoNewPrivileges=true
 WantedBy=multi-user.target
 ```
 
-Ative o serviÃ§o:
+Ative o serviêÂ§o:
 
 ```bash
 sudo systemctl daemon-reload
@@ -214,44 +214,44 @@ Para acompanhar os registros:
 sudo journalctl -u inemacabot -f
 ```
 
-## SoluÃ§Ã£o de problemas
+## SoluêÂ§êÂ£o de problemas
 
-### O bot nÃ£o inicia
+### O bot nêÂ£o inicia
 
-Confira as variÃ¡veis obrigatÃ³rias e o ID numÃ©rico:
+Confira as variêÂ¡veis obrigatêÂ³rias e o ID numêÂ©rico:
 
 ```bash
 source .venv/bin/activate
 python bot.py
 ```
 
-### O Telegram responde com erro genÃ©rico
+### O Telegram responde com erro genêÂ©rico
 
-Verifique a autenticaÃ§Ã£o do Codex no mesmo usuÃ¡rio que executa o bot:
+Verifique a autenticaêÂ§êÂ£o do Codex no mesmo usuêÂ¡rio que executa o bot:
 
 ```bash
 codex login status
 ```
 
-Confira tambÃ©m o caminho configurado em `CODEX_BINARY` e os logs do processo.
+Confira tambêÂ©m o caminho configurado em `CODEX_BINARY` e os logs do processo.
 
-### A mensagem de voz nÃ£o funciona
+### A mensagem de voz nêÂ£o funciona
 
 Confirme que `GROQ_API_KEY` foi definida e reinicie o bot. O projeto usa o
-endpoint oficial de transcriÃ§Ã£o do Groq e, por padrÃ£o, o modelo
+endpoint oficial de transcriêÂ§êÂ£o do Groq e, por padrêÂ£o, o modelo
 `whisper-large-v3-turbo`.
 
 ### O contexto sumiu
 
-O histÃ³rico Ã© intencionalmente pequeno e fica somente na memÃ³ria. Ele Ã© apagado
-por `/limpar` e sempre que o processo Ã© reiniciado.
+O histêÂ³rico êÂ© intencionalmente pequeno e fica somente na memêÂ³ria. Ele êÂ© apagado
+por `/limpar` e sempre que o processo êÂ© reiniciado.
 
-## ReferÃªncias
+## ReferêÂªncias
 
-- [Codex CLI â€” execuÃ§Ã£o nÃ£o interativa](https://developers.openai.com/codex/cli)
+- [Codex CLI ê¢â¬â execuêÂ§êÂ£o nêÂ£o interativa](https://developers.openai.com/codex/cli)
 - [Telegram Bot API](https://core.telegram.org/bots/api)
 - [Groq Speech to Text](https://console.groq.com/docs/speech-to-text)
 
 ---
 
-Projeto adaptado da comunidade INEMA TDS - Marca Arckhe
+Projeto  - ARCKHÉe

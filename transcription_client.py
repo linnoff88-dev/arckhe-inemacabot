@@ -1,4 +1,4 @@
-"""Transcrição opcional de voz e áudio usando a API do Groq."""
+"""Transcriçêo opcional de voz e áudio usando a API do Groq."""
 
 from __future__ import annotations
 
@@ -6,11 +6,11 @@ import httpx
 
 
 class TranscriptionError(RuntimeError):
-    """Erro seguro da integração de transcrição."""
+    """Erro seguro da integraçêo de transcriçêo."""
 
 
 class TranscriptionNotConfigured(TranscriptionError):
-    """A chave do Groq ainda não foi configurada."""
+    """A chave do Groq ainda nêo foi configurada."""
 
 
 class GroqTranscriptionClient:
@@ -38,7 +38,7 @@ class GroqTranscriptionClient:
     ) -> str:
         if not self.api_key:
             raise TranscriptionNotConfigured(
-                "A transcrição ainda não foi configurada."
+                "A transcriçêo ainda nêo foi configurada."
             )
         if not content:
             raise TranscriptionError("O arquivo de áudio está vazio.")
@@ -62,9 +62,9 @@ class GroqTranscriptionClient:
                 response.raise_for_status()
                 payload = response.json()
         except (httpx.HTTPError, ValueError) as exc:
-            raise TranscriptionError("Não foi possível transcrever o áudio.") from exc
+            raise TranscriptionError("Nêo foi possível transcrever o áudio.") from exc
 
         transcript = payload.get("text")
         if not isinstance(transcript, str) or not transcript.strip():
-            raise TranscriptionError("A transcrição recebida está vazia.")
+            raise TranscriptionError("A transcriçêo recebida está vazia.")
         return transcript.strip()

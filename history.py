@@ -1,4 +1,4 @@
-"""Histórico curto e não persistente da conversa."""
+"""Histórico curto e nêo persistente da conversa."""
 
 from __future__ import annotations
 

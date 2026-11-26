@@ -1,4 +1,4 @@
-# Instrução para criar um bot simples no Telegram
+# Instruçêo para criar um bot simples no Telegram
 
 Crie um sistema simples de bot para Telegram.
 
@@ -6,7 +6,7 @@ Crie um sistema simples de bot para Telegram.
 
 O bot deve receber as mensagens que eu enviar pelo Telegram, encaminhar o texto para uma inteligência artificial e devolver a resposta diretamente no Telegram.
 
-O bot não precisa executar automações, chamar outros agentes, controlar filas ou possuir várias funções.
+O bot nêo precisa executar automações, chamar outros agentes, controlar filas ou possuir várias funções.
 
 Ele deve apenas:
 
@@ -40,11 +40,11 @@ O bot responde no Telegram
 - Nunca colocar tokens ou chaves diretamente no código.
 - Permitir definir qual modelo de IA será utilizado.
 - Responder somente ao meu usuário do Telegram.
-- Ignorar mensagens enviadas por pessoas não autorizadas.
+- Ignorar mensagens enviadas por pessoas nêo autorizadas.
 - Registrar erros básicos no terminal.
 - Dividir respostas muito grandes, caso ultrapassem o limite do Telegram.
 - Manter um pequeno histórico da conversa para que a IA entenda o contexto.
-- Criar uma instrução de sistema configurável para definir o comportamento do assistente.
+- Criar uma instruçêo de sistema configurável para definir o comportamento do assistente.
 
 ## Variáveis de ambiente
 
@@ -62,7 +62,7 @@ O sistema deve funcionar com APIs compatíveis com o formato da OpenAI.
 
 ## Comportamento do bot
 
-A instrução principal da IA deve ser:
+A instruçêo principal da IA deve ser:
 
 ```text
 Você é meu assistente pessoal dentro do Telegram.
@@ -71,17 +71,17 @@ Responda diretamente ao que eu pedir.
 
 Seja claro, prático e objetivo.
 
-Não invente informações.
+Nêo invente informações.
 
-Quando não souber alguma coisa, informe claramente.
+Quando nêo souber alguma coisa, informe claramente.
 
-Não execute tarefas externas.
+Nêo execute tarefas externas.
 
-Não chame outros agentes.
+Nêo chame outros agentes.
 
-Não crie fluxos complexos.
+Nêo crie fluxos complexos.
 
-Sua única função é conversar comigo, entender minhas solicitações e responder no próprio Telegram.
+Sua única funçêo é conversar comigo, entender minhas solicitações e responder no próprio Telegram.
 ```
 
 ## Comandos básicos
@@ -102,7 +102,7 @@ Apaga o histórico da conversa.
 
 ### `/ajuda`
 
-Mostra uma explicação curta sobre como usar o bot.
+Mostra uma explicaçêo curta sobre como usar o bot.
 
 ## Segurança
 
@@ -112,10 +112,10 @@ Exemplo de regra:
 
 ```python
 if user_id != TELEGRAM_ALLOWED_USER_ID:
-    não responder
+    nêo responder
 ```
 
-Não permitir que usuários desconhecidos utilizem a API de inteligência artificial.
+Nêo permitir que usuários desconhecidos utilizem a API de inteligência artificial.
 
 ## Estrutura sugerida
 
@@ -142,7 +142,7 @@ Inclua no `README.md`:
 4. como instalar as dependências;
 5. como iniciar o bot;
 6. como manter o bot funcionando em uma VPS;
-7. como testar se a integração está funcionando.
+7. como testar se a integraçêo está funcionando.
 
 Utilize código simples, bem comentado e fácil de modificar.
 

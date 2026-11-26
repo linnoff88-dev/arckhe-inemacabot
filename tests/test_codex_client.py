@@ -19,7 +19,7 @@ class CodexClientTests(unittest.TestCase):
         self.assertIn("Usuário: Pergunta anterior", prompt)
         self.assertIn("Assistente: Resposta anterior", prompt)
         self.assertIn("Pergunta atual", prompt)
-        self.assertIn("Não use ferramentas", prompt)
+        self.assertIn("Nêo use ferramentas", prompt)
 
 
 if __name__ == "__main__":

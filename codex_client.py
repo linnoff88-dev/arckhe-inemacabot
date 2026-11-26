@@ -11,7 +11,7 @@ from history import Message
 
 
 class CodexError(RuntimeError):
-    """Erro seguro e apresentável da integração com o Codex."""
+    """Erro seguro e apresentável da integraçêo com o Codex."""
 
 
 class CodexClient:
@@ -29,7 +29,7 @@ class CodexClient:
         self.timeout_seconds = timeout_seconds
 
     async def answer(self, history: Sequence[Message], user_message: str) -> str:
-        """Executa uma sessão efêmera e devolve somente a resposta final."""
+        """Executa uma sessêo efêmera e devolve somente a resposta final."""
 
         prompt = self._build_prompt(history, user_message)
 
@@ -72,7 +72,7 @@ class CodexClient:
                     await process.wait()
                 raise CodexError("O Codex demorou demais para responder.") from exc
             except OSError as exc:
-                raise CodexError("Não foi possível iniciar o Codex CLI.") from exc
+                raise CodexError("Nêo foi possível iniciar o Codex CLI.") from exc
 
             if process.returncode != 0:
                 detail = stderr.decode("utf-8", errors="replace").strip()
@@ -85,7 +85,7 @@ class CodexClient:
             try:
                 answer = output_path.read_text(encoding="utf-8").strip()
             except OSError as exc:
-                raise CodexError("O Codex não produziu uma resposta legível.") from exc
+                raise CodexError("O Codex nêo produziu uma resposta legível.") from exc
 
         if not answer:
             raise CodexError("O Codex devolveu uma resposta vazia.")
@@ -100,7 +100,7 @@ class CodexClient:
             "</system_instruction>",
             "",
             "Responda somente com a mensagem final destinada ao usuário.",
-            "Não use ferramentas, não execute comandos e não acesse arquivos.",
+            "Nêo use ferramentas, nêo execute comandos e nêo acesse arquivos.",
             "",
             "<conversation_history>",
         ]

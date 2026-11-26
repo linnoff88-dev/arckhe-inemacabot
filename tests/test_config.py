@@ -27,7 +27,7 @@ class SettingsTests(unittest.TestCase):
                 Settings.from_env(validate_codex=False)
 
     def test_rejects_non_numeric_user_id(self) -> None:
-        env = {**BASE_ENV, "TELEGRAM_ALLOWED_USER_ID": "não-é-número"}
+        env = {**BASE_ENV, "TELEGRAM_ALLOWED_USER_ID": "nêo-é-número"}
         with patch.dict(os.environ, env, clear=True):
             with self.assertRaises(ConfigurationError):
                 Settings.from_env(validate_codex=False)

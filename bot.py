@@ -36,7 +36,7 @@ HELP_MESSAGE = (
     "Use /limpar para apagar o contexto recente da conversa."
 )
 GENERIC_ERROR_MESSAGE = (
-    "Não consegui responder agora. Tente novamente em alguns instantes."
+    "Nêo consegui responder agora. Tente novamente em alguns instantes."
 )
 
 
@@ -113,7 +113,7 @@ async def audio_message(
         return
     if not services.transcription.configured:
         await message.reply_text(
-            "A transcrição de áudio ainda não está configurada. "
+            "A transcriçêo de áudio ainda nêo está configurada. "
             "Defina GROQ_API_KEY no arquivo .env."
         )
         return
@@ -140,18 +140,18 @@ async def audio_message(
         )
     except TranscriptionNotConfigured:
         await message.reply_text(
-            "A transcrição de áudio ainda não está configurada."
+            "A transcriçêo de áudio ainda nêo está configurada."
         )
         return
     except TranscriptionError:
         LOGGER.exception("Falha ao transcrever áudio do Telegram.")
         await message.reply_text(
-            "Não consegui transcrever esse áudio. Tente novamente."
+            "Nêo consegui transcrever esse áudio. Tente novamente."
         )
         return
     except Exception:
         LOGGER.exception("Falha ao baixar áudio do Telegram.")
-        await message.reply_text("Não consegui baixar esse áudio.")
+        await message.reply_text("Nêo consegui baixar esse áudio.")
         return
 
     await _generate_and_reply(update, context, transcript)
@@ -190,7 +190,7 @@ async def error_handler(
     update: object, context: ContextTypes.DEFAULT_TYPE
 ) -> None:
     LOGGER.error(
-        "Erro não tratado no bot: %s",
+        "Erro nêo tratado no bot: %s",
         type(context.error).__name__ if context.error else "desconhecido",
         exc_info=context.error,
     )
@@ -253,7 +253,7 @@ def main() -> None:
     try:
         settings = Settings.from_env()
     except ConfigurationError as exc:
-        raise SystemExit(f"Erro de configuração: {exc}") from exc
+        raise SystemExit(f"Erro de configuraçêo: {exc}") from exc
 
     LOGGER.info("Iniciando o bot por long polling.")
     build_application(settings).run_polling(allowed_updates=Update.ALL_TYPES)

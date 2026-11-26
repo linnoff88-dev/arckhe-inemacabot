@@ -1,4 +1,4 @@
-"""Carregamento e validação da configuração do bot."""
+"""Carregamento e validaçêo da configuraçêo do bot."""
 
 from __future__ import annotations
 
@@ -13,16 +13,16 @@ DEFAULT_SYSTEM_PROMPT = """Você é meu assistente pessoal dentro do Telegram.
 
 Responda diretamente ao que eu pedir.
 Seja claro, prático e objetivo.
-Não invente informações.
-Quando não souber alguma coisa, informe claramente.
-Não execute tarefas externas.
-Não chame outros agentes.
-Não crie fluxos complexos.
-Sua única função é conversar comigo, entender minhas solicitações e responder no próprio Telegram."""
+Nêo invente informações.
+Quando nêo souber alguma coisa, informe claramente.
+Nêo execute tarefas externas.
+Nêo chame outros agentes.
+Nêo crie fluxos complexos.
+Sua única funçêo é conversar comigo, entender minhas solicitações e responder no próprio Telegram."""
 
 
 class ConfigurationError(ValueError):
-    """Indica que uma configuração obrigatória está ausente ou inválida."""
+    """Indica que uma configuraçêo obrigatória está ausente ou inválida."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -60,7 +60,7 @@ class Settings:
         codex_binary = os.getenv("CODEX_BINARY", "codex").strip() or "codex"
         if validate_codex and shutil.which(codex_binary) is None:
             raise ConfigurationError(
-                f"O executável do Codex não foi encontrado: {codex_binary!r}."
+                f"O executável do Codex nêo foi encontrado: {codex_binary!r}."
             )
 
         history_max_exchanges = _positive_int("HISTORY_MAX_EXCHANGES", 10)
@@ -69,7 +69,7 @@ class Settings:
 
         system_prompt = os.getenv("AI_SYSTEM_PROMPT", DEFAULT_SYSTEM_PROMPT).strip()
         if not system_prompt:
-            raise ConfigurationError("AI_SYSTEM_PROMPT não pode estar vazio.")
+            raise ConfigurationError("AI_SYSTEM_PROMPT nêo pode estar vazio.")
 
         return cls(
             telegram_bot_token=telegram_bot_token,
@@ -97,7 +97,7 @@ class Settings:
 def _required(name: str) -> str:
     value = os.getenv(name, "").strip()
     if not value:
-        raise ConfigurationError(f"A variável obrigatória {name} não foi definida.")
+        raise ConfigurationError(f"A variável obrigatória {name} nêo foi definida.")
     return value
 
 

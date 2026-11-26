@@ -1,9 +1,9 @@
 # AGENTS.md
 
-## Visão geral
+## Visêo geral
 
 O InemacaBot é um assistente pessoal para Telegram escrito em Python. A
-implementação atual:
+implementaçêo atual:
 
 - aceita somente o usuário definido por `TELEGRAM_ALLOWED_USER_ID`;
 - responde mensagens de texto por meio do Codex CLI autenticado localmente;
@@ -12,10 +12,10 @@ implementação atual:
 - divide respostas longas antes de enviá-las ao Telegram;
 - oferece apenas os comandos `/start`, `/ajuda` e `/limpar`.
 
-O documento `doc/plano_implementacao.md` descreve uma possível migração para uma
-API HTTP compatível com OpenAI e a remoção do suporte a áudio. Essa migração
-ainda não foi implementada. Ao alterar o projeto, trate o código e o `README.md`
-como a descrição do comportamento atual e não confunda o plano futuro com o
+O documento `doc/plano_implementacao.md` descreve uma possível migraçêo para uma
+API HTTP compatível com OpenAI e a remoçêo do suporte a áudio. Essa migraçêo
+ainda nêo foi implementada. Ao alterar o projeto, trate o código e o `README.md`
+como a descriçêo do comportamento atual e nêo confunda o plano futuro com o
 estado existente.
 
 ## Arquitetura atual
@@ -23,54 +23,54 @@ estado existente.
 Fluxo de texto:
 
 ```text
-Telegram -> autorização -> histórico -> Codex CLI -> histórico -> Telegram
+Telegram -> autorizaçêo -> histórico -> Codex CLI -> histórico -> Telegram
 ```
 
 Fluxo de áudio:
 
 ```text
-Telegram -> autorização -> download -> Groq -> transcrição -> Codex CLI
+Telegram -> autorizaçêo -> download -> Groq -> transcriçêo -> Codex CLI
          -> histórico -> Telegram
 ```
 
 Arquivos principais:
 
-- `bot.py`: ponto de entrada, handlers e composição dos serviços;
-- `config.py`: carregamento e validação das variáveis de ambiente;
-- `auth.py`: verificação do único usuário autorizado;
-- `codex_client.py`: execução assíncrona e efêmera do Codex CLI;
-- `transcription_client.py`: integração opcional com a transcrição do Groq;
-- `history.py`: histórico limitado e não persistente;
-- `message_utils.py`: divisão segura de respostas longas;
+- `bot.py`: ponto de entrada, handlers e composiçêo dos serviços;
+- `config.py`: carregamento e validaçêo das variáveis de ambiente;
+- `auth.py`: verificaçêo do único usuário autorizado;
+- `codex_client.py`: execuçêo assíncrona e efêmera do Codex CLI;
+- `transcription_client.py`: integraçêo opcional com a transcriçêo do Groq;
+- `history.py`: histórico limitado e nêo persistente;
+- `message_utils.py`: divisêo segura de respostas longas;
 - `tests/`: testes unitários;
-- `README.md`: instalação, configuração, operação e solução de problemas.
+- `README.md`: instalaçêo, configuraçêo, operaçêo e soluçêo de problemas.
 
-## Regras de implementação
+## Regras de implementaçêo
 
-- Mantenha a autorização antes de downloads, transcrições ou chamadas ao Codex.
-- Usuários não autorizados devem ser ignorados silenciosamente.
-- Nunca registre ou versione tokens, chaves de API ou cabeçalhos de autorização.
-- Não coloque valores reais no `.env.example`.
+- Mantenha a autorizaçêo antes de downloads, transcrições ou chamadas ao Codex.
+- Usuários nêo autorizados devem ser ignorados silenciosamente.
+- Nunca registre ou versione tokens, chaves de API ou cabeçalhos de autorizaçêo.
+- Nêo coloque valores reais no `.env.example`.
 - Adicione um par ao histórico somente depois de receber uma resposta válida.
 - Preserve a trava assíncrona que mantém mensagens e histórico em ordem.
 - O histórico deve continuar limitado, somente em memória e apagável por
   `/limpar`.
 - Respostas ao Telegram devem respeitar o limite seguro de 4.000 caracteres.
-- Erros enviados ao usuário devem ser curtos e não revelar detalhes internos.
-- Mantenha o cliente do Codex em sessão efêmera, diretório temporário vazio e
+- Erros enviados ao usuário devem ser curtos e nêo revelar detalhes internos.
+- Mantenha o cliente do Codex em sessêo efêmera, diretório temporário vazio e
   sandbox somente leitura.
-- Não introduza execução de ferramentas, comandos externos pelo modelo,
-  múltiplos agentes ou automações sem uma decisão explícita de produto.
+- Nêo introduza execuçêo de ferramentas, comandos externos pelo modelo,
+  múltiplos agentes ou automações sem uma decisêo explícita de produto.
 - Atualize o `README.md`, o `.env.example` e os testes quando uma mudança alterar
-  configuração ou comportamento observável.
+  configuraçêo ou comportamento observável.
 
-## Configuração
+## Configuraçêo
 
 Variáveis principais:
 
 - `TELEGRAM_BOT_TOKEN`: obrigatória;
 - `TELEGRAM_ALLOWED_USER_ID`: obrigatória e numérica;
-- `CODEX_BINARY`: opcional, padrão `codex`;
+- `CODEX_BINARY`: opcional, padrêo `codex`;
 - `CODEX_MODEL`: opcional;
 - `CODEX_TIMEOUT_SECONDS`: opcional;
 - `HISTORY_MAX_EXCHANGES`: opcional;
@@ -91,7 +91,7 @@ Use o ambiente virtual existente quando disponível:
 source .venv/bin/activate
 ```
 
-Instalação:
+Instalaçêo:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -103,7 +103,7 @@ Testes:
 .venv/bin/python -m unittest discover -v
 ```
 
-Execução local:
+Execuçêo local:
 
 ```bash
 .venv/bin/python bot.py
@@ -123,8 +123,8 @@ Antes de concluir uma mudança:
 1. execute toda a suíte de testes;
 2. adicione testes para caminhos novos e casos de erro relevantes;
 3. confirme que nenhum segredo foi incluído nos arquivos;
-4. verifique se usuários não autorizados continuam sem acionar serviços;
-5. revise se documentação e configuração permanecem coerentes com o código.
+4. verifique se usuários nêo autorizados continuam sem acionar serviços;
+5. revise se documentaçêo e configuraçêo permanecem coerentes com o código.
 
-O diretório pode não estar dentro de um repositório Git. Não presuma que
-comandos como `git status` estarão disponíveis.
+O diretório pode nêo estar dentro de um repositório Git. Nêo presuma que
+comandos como `git status` estarêo disponíveis.
