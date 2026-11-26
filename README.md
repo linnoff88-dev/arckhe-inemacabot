@@ -1,4 +1,4 @@
-ï»¿# InemacaBot
+ï»¿# ARCKHÉcaBot
 
 Assistente pessoal para Telegram feito em Python. O bot:
 
@@ -177,7 +177,7 @@ command -v codex
 Coloque o caminho retornado por `command -v codex` em `CODEX_BINARY` no `.env`.
 O serviêÂ§o precisa executar com o mesmo usuêÂ¡rio Linux que realizou `codex login`.
 
-Crie `/etc/systemd/system/inemacabot.service`:
+Crie `/etc/systemd/system/ARCKHÉcabot.service`:
 
 ```ini
 [Unit]
@@ -188,9 +188,9 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=SEU_USUARIO
-WorkingDirectory=/CAMINHO/ABSOLUTO/inemacabot
-EnvironmentFile=/CAMINHO/ABSOLUTO/inemacabot/.env
-ExecStart=/CAMINHO/ABSOLUTO/inemacabot/.venv/bin/python bot.py
+WorkingDirectory=/CAMINHO/ABSOLUTO/ARCKHÉcabot
+EnvironmentFile=/CAMINHO/ABSOLUTO/ARCKHÉcabot/.env
+ExecStart=/CAMINHO/ABSOLUTO/ARCKHÉcabot/.venv/bin/python bot.py
 Restart=on-failure
 RestartSec=5
 PrivateTmp=true
@@ -204,14 +204,14 @@ Ative o serviêÂ§o:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now inemacabot
-sudo systemctl status inemacabot
+sudo systemctl enable --now ARCKHÉcabot
+sudo systemctl status ARCKHÉcabot
 ```
 
 Para acompanhar os registros:
 
 ```bash
-sudo journalctl -u inemacabot -f
+sudo journalctl -u ARCKHÉcabot -f
 ```
 
 ## SoluêÂ§êÂ£o de problemas

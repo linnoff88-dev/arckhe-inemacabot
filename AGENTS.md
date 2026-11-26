@@ -2,7 +2,7 @@
 
 ## Visêo geral
 
-O InemacaBot é um assistente pessoal para Telegram escrito em Python. A
+O ARCKHÉcaBot é um assistente pessoal para Telegram escrito em Python. A
 implementaçêo atual:
 
 - aceita somente o usuário definido por `TELEGRAM_ALLOWED_USER_ID`;

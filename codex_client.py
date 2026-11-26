@@ -33,7 +33,7 @@ class CodexClient:
 
         prompt = self._build_prompt(history, user_message)
 
-        with tempfile.TemporaryDirectory(prefix="inemacabot-codex-") as temp_dir:
+        with tempfile.TemporaryDirectory(prefix="ARCKHÉcabot-codex-") as temp_dir:
             output_path = Path(temp_dir) / "answer.txt"
             command = [
                 self.binary,

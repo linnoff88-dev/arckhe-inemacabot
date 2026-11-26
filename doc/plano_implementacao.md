@@ -87,7 +87,7 @@ Responder no Telegram
 Estrutura prevista:
 
 ```text
-inemacabot/
+ARCKHÉcabot/
 ├── bot.py
 ├── ai_client.py
 ├── auth.py

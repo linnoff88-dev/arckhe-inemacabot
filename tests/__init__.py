@@ -1,1 +1,1 @@
-"""Testes automatizados do InemacaBot."""
+"""Testes automatizados do ARCKHÉcaBot."""
